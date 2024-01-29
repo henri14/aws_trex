@@ -46,6 +46,27 @@ aws_secret_access_key=YOUR_SECRET_ACCESS_KEY
 
 Provide sshkey in YourSshKey.sshkey file
 
+### Create aws_trex.tfvars
+
+Copy and edit values in aws_trex.tfvars.sample
+```
+cp aws_trex.tfvars.sample aws_trex.tfvars
+```
+
+Sample values
+```
+key_name        = "YourSshKey"
+public_key_path = "../aws_credentials/YourSshKey.sshkey"
+aws_shared_credentials_file = "../aws_credentials/shared_credentials_file.tfvars"
+allowed_inbound_cidr = {"inbound_cidr": "YourNetworkAddress/mask"}
+trex_bundle_url = "https://trex-tgn.cisco.com/trex/release/latest"
+dpdk_setup_file = "artefacts/dpdk_setup.sh"
+samplicator_conf_file = "artefacts/samplicator.conf"
+samplicator_service_file = "artefacts/samplicator.service"
+samplicator_bundle_url = "https://github.com/sleinen/samplicator/releases/download/v1.3.6/samplicator-1.3.6.tar.gz"
+samplicator_bundle_dir = "samplicator-1.3.6"
+```
+
 ### Specify credentials and ssh key in tfvars
 
 Provide AWS access key in ```aws_trex.tfvars```
